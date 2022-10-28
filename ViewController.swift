@@ -1,10 +1,13 @@
 //
+//  MAPD714 F22
+//  Mid-term Test
+//  Student: Sum, Chi Hung (Samuel) 300858503
+//  Date:   Oct 30, 2022
+//
 //  ViewController.swift
-//  ShoppingList
+//  Shopping List with perset favourite items
+//  Version 1.0
 //
-//  Created by Samuel Sum on 2022-10-27.
-//
-
 import UIKit
 
 
@@ -14,6 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     @IBOutlet weak var txtTitle: UITextField!
     var vc: PickerViewController!
     
+    let defaultTitle = "My Shopping List"
     var blankListData: [ShoppingItem] = [
         ShoppingItem(desc: "", qty: 1),
         ShoppingItem(desc: "", qty: 1),
@@ -58,6 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        txtTitle.text = defaultTitle
         data = blankListData
         txtTitle.delegate = self
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
@@ -91,7 +96,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         }
     }
     
-    @IBAction func diddPressAddButton(_ sender: UIButton) {
+    @IBAction func didPressAddButton(_ sender: UIButton) {
         data.append(ShoppingItem(desc: "", qty: 1))
         table.reloadData()
     }
@@ -113,6 +118,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     }
     
     @IBAction func didPressCancelButton(_ sender: UIButton) {
+        txtTitle.text = defaultTitle
         data = blankListData
         table.reloadData()
     }
