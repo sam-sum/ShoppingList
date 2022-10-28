@@ -18,8 +18,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADT-5i-1TY" userLabel="Title View">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yU3-gD-7IB">
-                                        <rect key="frame" x="19" y="76" width="352" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yU3-gD-7IB" userLabel="Title Text Field">
+                                        <rect key="frame" x="19" y="76" width="311" height="34"/>
                                         <color key="backgroundColor" red="0.3756723106" green="0.33216163520000003" blue="0.23215261100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <attributedString key="attributedText">
                                             <fragment content="My Shopping List">
@@ -41,13 +41,25 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tb0-99-Sci">
+                                        <rect key="frame" x="328" y="77" width="51" height="35"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="list.bullet" catalog="system">
+                                            <color key="baseForegroundColor" red="0.3295785785" green="0.29369902609999998" blue="0.20051491260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="97Y-NB-Xpi" kind="presentation" id="9PO-wN-K1v"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="Tb0-99-Sci" firstAttribute="top" secondItem="ADT-5i-1TY" secondAttribute="top" constant="77" id="D4l-T4-qir"/>
                                     <constraint firstItem="QES-z6-CYM" firstAttribute="leading" secondItem="ADT-5i-1TY" secondAttribute="leading" constant="19" id="KAx-md-Vue"/>
                                     <constraint firstItem="QES-z6-CYM" firstAttribute="leading" secondItem="yU3-gD-7IB" secondAttribute="leading" id="Nri-3i-GaP"/>
                                     <constraint firstItem="yU3-gD-7IB" firstAttribute="top" secondItem="QES-z6-CYM" secondAttribute="bottom" constant="8" id="S0G-JQ-vs4"/>
-                                    <constraint firstItem="yU3-gD-7IB" firstAttribute="centerX" secondItem="ADT-5i-1TY" secondAttribute="centerX" id="j3h-vN-csH"/>
+                                    <constraint firstItem="Tb0-99-Sci" firstAttribute="leading" secondItem="ADT-5i-1TY" secondAttribute="leading" constant="328" id="UWa-f7-LzO"/>
+                                    <constraint firstItem="Tb0-99-Sci" firstAttribute="leading" secondItem="yU3-gD-7IB" secondAttribute="trailing" constant="-2" id="mZY-jM-f3h"/>
                                     <constraint firstAttribute="bottom" secondItem="yU3-gD-7IB" secondAttribute="bottom" id="quM-1n-9UE"/>
                                     <constraint firstItem="QES-z6-CYM" firstAttribute="top" secondItem="ADT-5i-1TY" secondAttribute="top" constant="47" id="r3J-nl-Epy"/>
                                 </constraints>
@@ -57,7 +69,6 @@
                                         <exclude reference="Nri-3i-GaP"/>
                                         <exclude reference="r3J-nl-Epy"/>
                                         <exclude reference="S0G-JQ-vs4"/>
-                                        <exclude reference="j3h-vN-csH"/>
                                         <exclude reference="quM-1n-9UE"/>
                                     </mask>
                                 </variation>
@@ -67,7 +78,6 @@
                                         <include reference="Nri-3i-GaP"/>
                                         <include reference="r3J-nl-Epy"/>
                                         <include reference="S0G-JQ-vs4"/>
-                                        <include reference="j3h-vN-csH"/>
                                         <include reference="quM-1n-9UE"/>
                                     </mask>
                                 </variation>
@@ -137,6 +147,9 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Add a New Entry">
                                             <color key="baseBackgroundColor" red="0.38394346829999998" green="0.34054630990000001" blue="0.236412555" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="diddPressAddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T3F-BR-Vf4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GfN-08-M5o">
                                         <rect key="frame" x="208" y="62" width="170" height="35"/>
@@ -144,6 +157,9 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Cancel">
                                             <color key="baseBackgroundColor" red="0.38394346829999998" green="0.34054630990000001" blue="0.236412555" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didPressCancelButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hwC-Cw-Rf8"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRz-UY-xQT">
                                         <rect key="frame" x="20" y="62" width="170" height="35"/>
@@ -154,6 +170,9 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Save">
                                             <color key="baseBackgroundColor" red="0.38394346829999998" green="0.34054630990000001" blue="0.236412555" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didPressSaveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DHj-gh-FTB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -163,6 +182,7 @@
                                     <constraint firstAttribute="bottom" secondItem="mRz-UY-xQT" secondAttribute="bottom" constant="20" id="RRq-BZ-VSK"/>
                                     <constraint firstItem="GfN-08-M5o" firstAttribute="baseline" secondItem="mRz-UY-xQT" secondAttribute="firstBaseline" id="Svx-VS-6Uc"/>
                                     <constraint firstItem="qSF-Rs-KgZ" firstAttribute="top" secondItem="aLj-p3-OIR" secondAttribute="top" constant="20" id="SzV-rI-Hqh"/>
+                                    <constraint firstAttribute="trailing" secondItem="GfN-08-M5o" secondAttribute="trailing" constant="20" symbolic="YES" id="Z1H-Ka-BZI"/>
                                     <constraint firstItem="GfN-08-M5o" firstAttribute="leading" secondItem="mRz-UY-xQT" secondAttribute="trailing" constant="18" id="gPp-du-74i"/>
                                     <constraint firstItem="qSF-Rs-KgZ" firstAttribute="leading" secondItem="aLj-p3-OIR" secondAttribute="leading" constant="20" id="iT2-gm-wal"/>
                                     <constraint firstItem="qSF-Rs-KgZ" firstAttribute="centerX" secondItem="aLj-p3-OIR" secondAttribute="centerX" id="jhw-j0-sD4"/>
@@ -250,11 +270,70 @@
                     </view>
                     <connections>
                         <outlet property="table" destination="rRb-Pf-QfI" id="sqP-aK-cvT"/>
+                        <outlet property="txtTitle" destination="yU3-gD-7IB" id="vmB-7a-LMc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-69.230769230769226" y="3.5545023696682461"/>
         </scene>
+        <!--Picker View Controller-->
+        <scene sceneID="TIo-Ur-Taj">
+            <objects>
+                <viewController storyboardIdentifier="PickerViewController" id="97Y-NB-Xpi" userLabel="Picker View Controller" customClass="PickerViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gcq-Tg-ldd">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F4T-Lt-c5E">
+                                <rect key="frame" x="35" y="146" width="320" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KM5-9H-onS">
+                                <rect key="frame" x="152.66666666666666" y="378" width="85" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Confirm">
+                                    <color key="baseBackgroundColor" red="0.38394346829999998" green="0.34054630990000001" blue="0.236412555" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onButtonPressed:" destination="97Y-NB-Xpi" eventType="touchUpInside" id="QgE-0A-sg4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6G-rs-BCz">
+                                <rect key="frame" x="58" y="93" width="274" height="28"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Choose your favourite list">
+                                        <attributes>
+                                            <color key="NSColor" red="0.3756723106" green="0.33216163520000003" blue="0.23215261100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="24" name="STSong"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gfa-rj-sBp"/>
+                        <color key="backgroundColor" red="0.86619573829999996" green="0.86619573829999996" blue="0.86619573829999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="F4T-Lt-c5E" firstAttribute="centerX" secondItem="Gcq-Tg-ldd" secondAttribute="centerX" id="A9o-UZ-c0o"/>
+                            <constraint firstItem="n6G-rs-BCz" firstAttribute="centerX" secondItem="Gcq-Tg-ldd" secondAttribute="centerX" id="Bug-po-Jgy"/>
+                            <constraint firstItem="n6G-rs-BCz" firstAttribute="top" secondItem="gfa-rj-sBp" secondAttribute="top" constant="46" id="U9g-5D-QC3"/>
+                            <constraint firstItem="KM5-9H-onS" firstAttribute="top" secondItem="F4T-Lt-c5E" secondAttribute="bottom" constant="16" id="bi1-Oc-1Rb"/>
+                            <constraint firstItem="KM5-9H-onS" firstAttribute="centerX" secondItem="Gcq-Tg-ldd" secondAttribute="centerX" id="lml-Fw-F74"/>
+                            <constraint firstItem="F4T-Lt-c5E" firstAttribute="centerX" secondItem="Gcq-Tg-ldd" secondAttribute="centerX" id="wU5-jV-a3w"/>
+                            <constraint firstItem="F4T-Lt-c5E" firstAttribute="top" secondItem="n6G-rs-BCz" secondAttribute="bottom" constant="25" id="y02-ef-z1r"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="picker" destination="F4T-Lt-c5E" id="5Ql-hy-Wuy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="geF-U4-DnU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="756.92307692307691" y="13.507109004739336"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
+    </resources>
 </document>
