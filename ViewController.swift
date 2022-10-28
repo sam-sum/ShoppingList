@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         ShoppingItem(desc: "", qty: 1),
     ]
     
-    var ComputerPartsData: [ShoppingItem] = [
+    var computerPartsData: [ShoppingItem] = [
         ShoppingItem(desc: "Intel CPU Core i9-13900K", qty: 1),
         ShoppingItem(desc: "Helix DDR5 16GB RAM", qty: 1),
         ShoppingItem(desc: "AMD RX6700XT GPU", qty: 1),
@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         ShoppingItem(desc: "CPU Water Cooler", qty: 1),
     ]
     
-    var ChristmasData: [ShoppingItem] = [
+    var christmasData: [ShoppingItem] = [
         ShoppingItem(desc: "Christmas tree mid size", qty: 1),
         ShoppingItem(desc: "Christmas socks", qty: 1),
         ShoppingItem(desc: "Christmas cake", qty: 1),
@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         ShoppingItem(desc: "Christmas tinsel", qty: 1),
     ]
 
-    var ElectronicData: [ShoppingItem] = [
+    var electronicData: [ShoppingItem] = [
         ShoppingItem(desc: "Mario Kart Game", qty: 1),
         ShoppingItem(desc: "Pokémon Legends: Arceus", qty: 1),
         ShoppingItem(desc: "Nintendo Switch Sports", qty: 1),
@@ -46,16 +46,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         ShoppingItem(desc: "Ring Fit Adventure", qty: 1),
     ]
     
-    var data: [ShoppingItem] = [
-        ShoppingItem(desc: "item1", qty: 1),
-        ShoppingItem(desc: "item2", qty: 1),
-        ShoppingItem(desc: "item3", qty: 1),
-        ShoppingItem(desc: "item4", qty: 1),
-        ShoppingItem(desc: "item5", qty: 1),
+    var groceryData: [ShoppingItem] = [
+        ShoppingItem(desc: "Caesar salad bag 350g", qty: 1),
+        ShoppingItem(desc: "Hotdog sausage", qty: 1),
+        ShoppingItem(desc: "Prosciutto 100g", qty: 1),
+        ShoppingItem(desc: "Blue Cheese 300g", qty: 1),
+        ShoppingItem(desc: "Noodle 200g", qty: 1),
     ]
+    
+    var data: [ShoppingItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        data = blankListData
         txtTitle.delegate = self
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tapGesture.cancelsTouchesInView = false
@@ -135,16 +138,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         switch Category.allCases[index] {
         case Category.ComputerParts:
             txtTitle.text = Category.ComputerParts.toString()
-            data = ComputerPartsData
+            data = computerPartsData
         case Category.Christmas:
             txtTitle.text = Category.Christmas.toString()
-            data = ChristmasData
+            data = christmasData
         case Category.Electronic:
             txtTitle.text = Category.Electronic.toString()
-            data = ElectronicData
+            data = electronicData
         case Category.Grocery:
             txtTitle.text = Category.Grocery.toString()
-            data = ComputerPartsData
+            data = groceryData
         }
         table.reloadData()
     }

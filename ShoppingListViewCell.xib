@@ -20,7 +20,7 @@
                         <rect key="frame" x="8" y="25" width="216" height="34"/>
                         <color key="backgroundColor" red="0.65980160239999996" green="0.5857905149" blue="0.40210139750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
                             <action selector="textFieldDidEndEditing:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="VgU-Wo-dQb"/>
