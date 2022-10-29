@@ -65,22 +65,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         txtTitle.text = defaultTitle
         data = blankListData
         txtTitle.delegate = self
+        
+        //Dismiss the keyboard if the user tap outside the text field
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
+        
+        //Init table view and cells
         table.register(ShoppingListViewCell.nib(), forCellReuseIdentifier: ShoppingListViewCell.identifier)
         table.dataSource = self
         table.rowHeight = 80
         table.keyboardDismissMode = .onDrag
-        // pickerview call back via delegate
-        //vc = storyboard?.instantiateViewController(withIdentifier: "PickerViewController") as? PickerViewController
-        //vc.delegate = self
     }
-
+    
+    // *****
+    // define number of total cells (row) in the table view
+    // *****
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count
     }
     
+    // *****
+    // Called by iOS to reuse / create a table cell for display
+    // *****
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ShoppingListViewCell.identifier, for: indexPath) as! ShoppingListViewCell
         cell.configure(with: data[indexPath.row], row: indexPath.row)
@@ -88,6 +95,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         return cell
     }
     
+    // *****
+    // Called by iOS when the table cell is swipped left for deletion
+    // *****
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             data.remove(at: indexPath.row)
@@ -96,11 +106,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         }
     }
     
+    // *****
+    // Triggered by the UI add button to append an new entry to the table view and the data array
+    // *****
     @IBAction func didPressAddButton(_ sender: UIButton) {
         data.append(ShoppingItem(desc: "", qty: 1))
         table.reloadData()
     }
     
+    // *****
+    // Triggered by the UI save button to dump the shopping list to debug
+    // *****
     @IBAction func didPressSaveButton(_ sender: UIButton) {
         let listName = txtTitle.text!
         print("List Name: \(listName)")
@@ -117,29 +133,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         print()
     }
     
+    // *****
+    // Triggered by the UI cancel button to reset the shopping list
+    // *****
     @IBAction func didPressCancelButton(_ sender: UIButton) {
         txtTitle.text = defaultTitle
         data = blankListData
         table.reloadData()
     }
-    /*
-    @IBAction func didPressPickerButton(_ sender: UIButton) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "PickerViewController") as? PickerViewController {
-            //informs the PickerViewController that the ViewController is the delegate
-            vc.delegate = self
-            print("Calling Picker View Controller")
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    */
+
+    // *****
+    // Dismiss the keyboard when return key is clicked
+    // *****
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         //self.view.endEditing(true)
         return true
     }
     
+    // *****
+    // Call back function triggerd by the picker view controller to passs back the selected value
+    // *****
     func didFinishSelection(index: Int) {
-        print("Picker returned: \(index)")
+        //print("Picker returned: \(index)")
         
         switch Category.allCases[index] {
         case Category.ComputerParts:

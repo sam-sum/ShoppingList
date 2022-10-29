@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tb0-99-Sci">
-                                        <rect key="frame" x="328" y="77" width="51" height="35"/>
+                                        <rect key="frame" x="328" y="77" width="51" height="34"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="list.bullet" catalog="system">
                                             <color key="baseForegroundColor" red="0.3295785785" green="0.29369902609999998" blue="0.20051491260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

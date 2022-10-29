@@ -44,6 +44,9 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         return categoryNames[row]
     }
 
+    // *****
+    // Triggered by the UI confirm button to pass the picker value back to the parent view controller
+    // *****
     @IBAction func onButtonPressed(_ sender: UIButton) {
         let row = picker.selectedRow(inComponent: 0)
         //print("Picker View button: \(row)")

@@ -32,15 +32,25 @@ class ShoppingListViewCell: UITableViewCell, UITextFieldDelegate {
     static func nib() -> UINib {
         return UINib(nibName: "ShoppingListViewCell", bundle: nil)
     }
+    
+    // *****
+    // Notify the parent view controller about the stepper value changes
+    // *****
     @IBAction func didChangeStepperValue(_ sender: UIStepper) {
         lblStepper.text = String (format:"%.f", stepper.value)
         delegate?.didChangeStepperValue(with: tagStepper, value: sender.value)
     }
     
+    // *****
+    // Notify the parent view controller about the text field value changes
+    // *****
     @IBAction func textFieldDidEndEditing(_ sender: UITextField) {
         delegate?.textFieldDidEndEditing(with: tagTxtDesc, value: sender.text ?? "")
     }
     
+    // *****
+    // Config the content of a table cell
+    // *****
     func configure(with item: ShoppingItem, row: Int) {
         txtDesc.delegate = self
         self.tagStepper = row
@@ -55,9 +65,11 @@ class ShoppingListViewCell: UITableViewCell, UITextFieldDelegate {
         super.awakeFromNib()
     }
     
+    // *****
+    // Dismiss the keyboard when the return key is clicked
+    // *****
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        //self.view.endEditing(true)
         return true
     }
 }
